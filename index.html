@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東海大學課程管理系統</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+</head>
+
+<body>
+    <style>
+        body {
+            position: fixed;
+            background: #F8F4F3;
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 26px;
+
+            color: #000000;
+        }
+
+        div.top {
+            position: fixed;
+            width: 100%;
+            height: 70px;
+            left: 0px;
+            top: 0px;
+            margin: 0px;
+            border: 0px;
+            padding: 0px;
+            background: #394A64;
+        }
+
+        div.toptitle {
+            position: absolute;
+            width: 360px;
+            height: 52px;
+            left: 20px;
+            top: 10px;
+
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 36px;
+            line-height: 52px;
+            color: #F8F4F3;
+        }
+
+        div.search {
+            box-sizing: border-box;
+            position: fixed;
+            width: 1206px;
+            height: 220px;
+            left: 40px;
+            top: 105px;
+            border: 1.5px solid rgba(57, 74, 100, 0.57);
+            border-radius: 15px;
+        }
+
+        div.search_bar {
+            position: absolute;
+            width: 1204px;
+            height: 47px;
+            left: 33px;
+            top: 97px;
+            border-radius: 15px 15px 0px 0px;
+            background: #9EB3CE;
+        }
+
+        div.search_word {
+            position: absolute;
+            left: 2.4%;
+            right: 86.67%;
+            top: 2.59%;
+            bottom: 79.17%;
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 30px;
+            /* identical to box height */
+            letter-spacing: 0.25em;
+            color: #293A54 !important;
+        }
+
+        div.search_litter1 {
+            position: fixed;
+            left: -70px;
+            top: 147px;
+        }
+
+        div.search_litter2 {
+            position: fixed;
+            left: -70px;
+            top: 203px;
+        }
+
+        div.search_litter3 {
+            position: fixed;
+            left: -70px;
+            top: 260px;
+        }
+
+
+        div.link_top {
+            position: fixed;
+            width: 1206px;
+            height: 0.5px;
+            left: 40px;
+            top: 196px;
+
+            border-top: solid rgba(139, 147, 162, 0.91);
+        }
+
+        div.textbox1 {
+            position: fixed;
+            width: 75px;
+            height: 30px;
+            left: 96px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox2 {
+            position: fixed;
+            width: 75px;
+            height: 30px;
+            left: 213px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox3 {
+            position: fixed;
+            width: 88px;
+            height: 30px;
+            left: 334px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox4 {
+            position: fixed;
+            width: 98px;
+            height: 30px;
+            left: 497px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox5 {
+            position: fixed;
+            width: 123px;
+            height: 30px;
+            left: 667px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox6 {
+            position: fixed;
+            width: 125px;
+            height: 30px;
+            left: 840px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox7 {
+            position: fixed;
+            width: 165px;
+            height: 30px;
+            left: 1012px;
+            top: 158px;
+            background: #D9D9D9;
+        }
+
+        div.textbox8 {
+            position: fixed;
+            width: 414px;
+            height: 30px;
+            left: 130px;
+            top: 215px;
+            background: #D9D9D9;
+        }
+
+        div.textbox9 {
+            position: fixed;
+            width: 145px;
+            height: 30px;
+            left: 623px;
+            top: 215px;
+            background: #D9D9D9;
+        }
+
+        div.textbox10 {
+            position: fixed;
+            width: 255px;
+            height: 30px;
+            left: 853px;
+            top: 215px;
+            background: #D9D9D9;
+        }
+
+        div.textbox11 {
+            position: fixed;
+            width: 185px;
+            height: 30px;
+            left: 130px;
+            top: 273px;
+            background: #D9D9D9;
+        }
+
+        div.textbox12 {
+            position: fixed;
+            width: 90px;
+            height: 30px;
+            left: 373px;
+            top: 273px;
+            background: #D9D9D9;
+        }
+
+        div.textbox13 {
+            position: fixed;
+            width: 247px;
+            height: 30px;
+            left: 522px;
+            top: 273px;
+            background: #D9D9D9;
+        }
+
+        div.textbox14 {
+            position: fixed;
+            width: 255px;
+            height: 30px;
+            left: 853px;
+            top: 273px;
+            background: #D9D9D9;
+        }
+
+        div.start {
+            position: fixed;
+            width: 64px;
+            height: 25px;
+            left: 1149px;
+            top: 244px;
+            background: #657FDC;
+            border-radius: 2px;
+
+        }
+
+        div.startword {
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 26px;
+            text-align: center;
+            color: #FFFFFF;
+
+        }
+
+        div.end {
+            position: fixed;
+            width: 64px;
+            height: 25px;
+            left: 1149px;
+            top: 284px;
+
+            background: #D13232;
+            border-radius: 2px;
+        }
+
+        div.tabletitle {
+            position: fixed;
+            width: 1204px;
+            height: 45px;
+            left: 44px;
+            top: 358px;
+
+            background: #9EB3CE;
+            border-radius: 5px;
+        }
+
+        div.tabletitle_word {
+
+            font-family: 'Zen Maru Gothic';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 29px;
+            text-align: center;
+            color: #293A54;
+        }
+
+        div.tabletitle_wordlocol {
+            position: fixed;
+            left: -156px;
+            top: 354px;
+        }
+
+        div.box {
+            box-sizing: border-box;
+            position: absolute;
+            left: 1.89%;
+            right: 96.2%;
+            top: 13.92%;
+            bottom: 63.68%;
+            background: #FFFFFF;
+            border: 1px solid #8B93A2;
+            border-radius: 2px;
+        }
+    </style>
+
+    <div class="top">
+        <div class="toptitle">
+            東海大學課程管理系統
+        </div>
+    </div>
+
+    <div class="search_bar" wmode="transparent">
+        <div class="search">
+            <div class="search_word">
+                課程搜尋
+            </div>
+        </div>
+        <div class="search_litter1">
+            <pre>
+                學年     　　  學期     　　  學制       　　　開課星期          　　開課節次  　　       　　 學系　     　     　　班級
+            </pre>
+        </div>
+        <div class="link_top">
+        </div>
+        <br>
+        <div class="search_litter2">
+            <pre>
+                課程名稱　　　　　　　　　　　　　　　　　　　　　　　　　　　　　開課地點           　　　　　選課代碼
+            </pre>
+        </div>
+        <br>
+        <div class="search_litter3">
+            <pre>
+                授課教師                 　　　　必選修       　　　學分數　　　　　　　　　　　　　　　　　　課程代碼
+            </pre>
+        </div>
+
+        <div class="textbox1"></div>
+        <div class="textbox2"></div>
+        <div class="textbox3"></div>
+        <div class="textbox4"></div>
+        <div class="textbox5"></div>
+        <div class="textbox6"></div>
+        <div class="textbox7"></div>
+        <div class="textbox8"></div>
+        <div class="textbox9"></div>
+        <div class="textbox10"></div>
+        <div class="textbox11"></div>
+        <div class="textbox12"></div>
+        <div class="textbox13"></div>
+        <div class="textbox14"></div>
+        <div class="start">
+            <div class="startword">
+                開始搜尋
+            </div>
+        <div>
+        <div class="end">
+            <div class="startword">
+                清除搜尋
+            </div>
+        <div>
+
+        <div class="tabletitle">
+            </div>
+                <div class="tabletitle_word">
+                    <!-- <div class="box"> -->
+                    </div>
+                        <div class="tabletitle_wordlocol">
+                            <pre>
+                                選課代碼　　　課程名稱　　　　　　　授課教師　　　　　　學制　　　修習　　　系級　　　必選修　　學分數　　　時間及地點 　　　課程代碼 　　備註
+                            </pre>
+                        </div>
+                    <!-- </div> -->
+
+
+
+
+                    </div>
+                </div>
+</body>
+
+</html>
